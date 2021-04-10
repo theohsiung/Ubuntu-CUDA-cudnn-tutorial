@@ -53,6 +53,7 @@ sudo apt-get install nvidia-driver-450
 
 # 安裝Gcc 5 & G++ 5
 因为Ubuntu18.04默认gcc7.0，而CUDA9.0只支持gcc6.0及以下版本
+
 首先查看自己的版本
 
 gcc –version
@@ -60,16 +61,21 @@ gcc –version
 显示7.x
 
 在终端输入
+
 sudo apt install gcc-5 
+
 sudo apt install g++-5
 
 sudo mv gcc gcc.bak
+
 sudo ln -s gcc-5 gcc
 
 sudo mv g++ g++.bak
+
 sudo ln -s g++-5 g++
 
 gcc –version
+
 显示5.x
 
 
@@ -119,6 +125,8 @@ export CUDA_HOME=/usr/local/cuda-9.0:$CUDA_HOME
 # 安裝CUDNN 7.6.5
 
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
