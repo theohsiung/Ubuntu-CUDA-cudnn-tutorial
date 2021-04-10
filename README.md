@@ -51,21 +51,43 @@ sudo apt-get install nvidia-driver-450
 
 以上完成顯示卡驅動安裝!!!!!
 
-# 安裝CUDA 10.0
+# 安裝Gcc 5 & G++ 5
+因为Ubuntu18.04默认gcc7.0，而CUDA9.0只支持gcc6.0及以下版本
+首先查看自己的版本
+
+gcc –version
+
+显示7.x
+
+在终端输入
+sudo apt install gcc-5 
+sudo apt install g++-5
+
+sudo mv gcc gcc.bak
+sudo ln -s gcc-5 gcc
+
+sudo mv g++ g++.bak
+sudo ln -s g++-5 g++
+
+gcc –version
+显示5.x
+
+
+# 安裝CUDA 9.0
 網路上搜尋nvidia CUDA，並進入CUDA安裝網頁
 
 # Step 1
 1.進入安裝網頁後，因為nvidia會自動轉入cuda最新版本的頁面，所以需要自行找尋舊版本
 ![Alt text](1.PNG?raw=true "Title")
 
-2.尋找CUDA10.0的超連結
+2.尋找CUDA9.0的超連結
 ![Alt text](2.png?raw=true "Title")
 
-3.進入CUDA10.0的頁面後，請依照OS系統(如下圖的點選)點選條件
+3.進入CUDA9.0的頁面後，請依照OS系統(如下圖的點選)點選條件
 3.1 Download
 3.2 下載完檔案後，請在ubuntu尋找檔案的資料夾，並在資料夾中右鍵點開終端機，並輸入
 
-sudo sh cuda_10.0.130_410.48_linux.run
+sudo sh cuda_9.0.130_410.48_linux.run
 ![Alt text](3.png?raw=true "Title")
 
 4.輸入完後會進入CUDA安裝的協議文件，可以利用鍵盤的SPACE(空白鍵)快速瀏覽
@@ -82,15 +104,21 @@ sudo gedit ~/.bashrc
 
 在文件的末端添加
 
-export PATH=/usr/local/cuda-10.0/bin:$PATH
+export PATH=/usr/local/cuda-9.0/bin:$PATH
 
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH
 
-export CUDA_HOME=/usr/local/cuda-10.0:$CUDA_HOME
+export CUDA_HOME=/usr/local/cuda-9.0:$CUDA_HOME
 
 保存退出，終端運行 source ~/.bashrc
 
 輸入nvcc -V 檢查是否安裝成功
 
 以上完成顯示卡驅動安裝!!!!
+
+# 安裝CUDNN 7.6.5
+
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
