@@ -125,8 +125,10 @@ export CUDA_HOME=/usr/local/cuda-9.0:$CUDA_HOME
 # 安裝CUDNN 
 cuDNN download official website
 https://developer.nvidia.com/cudnn
+不要下載（deb）
 
 ```python
+sudo tar -xzvf cudnn-.tgz   
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*'
