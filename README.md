@@ -109,24 +109,25 @@ sudo sh cuda_9.0.130_410.48_linux.run
 sudo gedit ~/.bashrc
 
 在文件的末端添加
-
+```python
 export PATH=/usr/local/cuda-9.0/bin:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH
 
 export CUDA_HOME=/usr/local/cuda-9.0:$CUDA_HOME
-
+```
 保存退出，終端運行 source ~/.bashrc
 
 輸入nvcc -V 檢查是否安裝成功
 
 以上完成顯示卡驅動安裝!!!!
 
-# 安裝CUDNN 7.6.5
+# 安裝CUDNN 
+cuDNN download official website
+https://developer.nvidia.com/cudnn
 
+```python
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-
-sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
-
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*'
+```
