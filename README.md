@@ -110,11 +110,9 @@ sudo gedit ~/.bashrc
 
 在文件的末端添加
 ```python
-export PATH=/usr/local/cuda-9.0/bin:$PATH
-
-export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH
-
-export CUDA_HOME=/usr/local/cuda-9.0:$CUDA_HOME
+export CUDA_HOME=/usr/local/cuda-11.8
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 ```
 保存退出，終端運行 source ~/.bashrc
 
